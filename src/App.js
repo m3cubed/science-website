@@ -17,12 +17,7 @@ const styles = theme => ({
 		height: "100vh",
 		overflow: "auto"
 	},
-	appBarSpacer: theme.mixins.toolbar,
-	pages: {
-		padding: theme.spacing.unit * 3,
-		margin: "0px auto",
-		display: "block"
-	}
+	appBarSpacer: theme.mixins.toolbar
 });
 
 class App extends Component {
@@ -37,11 +32,11 @@ class App extends Component {
 						<SideDrawer />
 						<main className={classes.content}>
 							<div className={classes.appBarSpacer} />
+
 							<Switch>
 								<Route exact path="/" component={LandingPage} />
-								<div className={classes.pages}>
-									<Route exact path="/calendar" component={Calendar} />
-								</div>
+
+								<Route exact path="/calendar" component={Calendar} />
 							</Switch>
 						</main>
 					</div>

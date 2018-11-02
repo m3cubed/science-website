@@ -33,7 +33,6 @@ const styles = theme => ({
 			duration: theme.transitions.duration.enteringScreen
 		})
 	},
-
 	menuButton: {
 		marginLeft: 12,
 		marginRight: 36
@@ -44,7 +43,6 @@ const styles = theme => ({
 	title: {
 		flexGrow: 1
 	},
-
 	chartContainer: {
 		marginLeft: -22
 	},

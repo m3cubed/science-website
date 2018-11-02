@@ -1,6 +1,6 @@
 import React from "react";
 import dateFns from "date-fns";
-import { AutoSizer } from "react-virtualized";
+import { withStyles } from "@material-ui/core/styles";
 //Accessories
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -9,6 +9,30 @@ import Typography from "@material-ui/core/Typography";
 //Icons
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+
+const styles = theme => ({
+	dayRegular: {
+		height: "100%",
+		borderRight: "3px solid lightgrey",
+		"&:hover": {
+			borderRight: `3px solid ${theme.palette.primary.light}`
+		},
+		padding: 8
+	},
+	daySelected: {
+		height: "100%",
+		borderRight: `3px solid ${theme.palette.primary.main}`,
+		padding: 8
+	},
+	dayRight: {
+		height: "100%",
+		borderRight: `3px solid transparent`,
+		"&:hover": {
+			borderRight: `3px solid ${theme.palette.primary.light}`
+		},
+		padding: 8
+	}
+});
 
 class CalendarFW extends React.Component {
 	state = {
@@ -49,7 +73,10 @@ class CalendarFW extends React.Component {
 		for (let i = 0; i < 7; i++) {
 			days.push(
 				<Grid item align="center" xs key={i}>
-					<Typography variant="subtitle1">
+					<Typography
+						style={{ textTransform: "uppercase" }}
+						variant="subtitle1"
+					>
 						{dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
 					</Typography>
 				</Grid>
@@ -59,8 +86,7 @@ class CalendarFW extends React.Component {
 		return (
 			<Grid
 				style={{
-					borderTop: "1px solid grey",
-					borderBottom: "1px solid grey",
+					borderTop: "3px solid lightgrey",
 					padding: 5
 				}}
 				container
@@ -74,6 +100,7 @@ class CalendarFW extends React.Component {
 
 	renderCells() {
 		const { currentMonth, selectedDate } = this.state;
+		const { classes } = this.props;
 		const monthStart = dateFns.startOfMonth(currentMonth);
 		const monthEnd = dateFns.endOfMonth(monthStart);
 		const startDate = dateFns.startOfWeek(monthStart);
@@ -95,25 +122,46 @@ class CalendarFW extends React.Component {
 						item
 						xs
 						key={day}
+						className={
+							dateFns.isSameDay(day, selectedDate)
+								? classes.daySelected
+								: i !== 6
+									? classes.dayRegular
+									: classes.dayRight
+						}
 						onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
 					>
-						<div>{formattedDate}</div>
+						<Typography
+							style={{
+								color: dateFns.isSameMonth(day, monthStart)
+									? "black"
+									: "lightgrey"
+							}}
+							variant="h6"
+							align="right"
+						>
+							{formattedDate}
+						</Typography>
 					</Grid>
 				);
 				day = dateFns.addDays(day, 1);
 			}
 			rows.push(
-				<div style={{ flexGrow: 1, width: "inherit" }}>
-					<Grid
-						container
-						item
-						justify="space-around"
-						alignItems="center"
-						key={day}
-					>
-						{days}
-					</Grid>
-				</div>
+				<Grid
+					container
+					item
+					xs
+					style={{
+						flexGrow: 1,
+						width: "100%",
+						borderTop: "3px solid lightgrey"
+					}}
+					justify="space-around"
+					alignItems="center"
+					key={day}
+				>
+					{days}
+				</Grid>
 			);
 			days = [];
 		}
@@ -152,19 +200,15 @@ class CalendarFW extends React.Component {
 
 	render() {
 		return (
-			<Paper style={{ width: "80vw", height: "80vh" }}>
+			<Paper style={{ width: "80vw", height: "87vh" }}>
 				<Grid
 					style={{ height: "100%", width: "100%" }}
 					container
 					direction="column"
 				>
-					<Grid item xs>
-						{this.renderHeader()}
-					</Grid>
-					<Grid item xs>
-						{this.renderDays()}
-					</Grid>
-					<Grid style={{ flexGrow: 1, maxWidth: "100%" }} item xs={10}>
+					<Grid item>{this.renderHeader()}</Grid>
+					<Grid item>{this.renderDays()}</Grid>
+					<Grid style={{ maxWidth: "100%" }} item xs>
 						{this.renderCells()}
 					</Grid>
 				</Grid>
@@ -173,4 +217,4 @@ class CalendarFW extends React.Component {
 	}
 }
 
-export default CalendarFW;
+export default withStyles(styles)(CalendarFW);
