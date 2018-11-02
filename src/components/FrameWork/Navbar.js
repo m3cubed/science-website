@@ -18,7 +18,6 @@ const styles = theme => ({
 	toolbar: {
 		paddingRight: 24 // keep right padding when drawer closed
 	},
-
 	appBar: {
 		zIndex: theme.zIndex.drawer + 1,
 		transition: theme.transitions.create(["width", "margin"], {
@@ -34,6 +33,7 @@ const styles = theme => ({
 			duration: theme.transitions.duration.enteringScreen
 		})
 	},
+
 	menuButton: {
 		marginLeft: 12,
 		marginRight: 36
@@ -44,8 +44,6 @@ const styles = theme => ({
 	title: {
 		flexGrow: 1
 	},
-
-	appBarSpacer: theme.mixins.toolbar,
 
 	chartContainer: {
 		marginLeft: -22
@@ -67,17 +65,17 @@ class Navbar extends Component {
 				<AppBar
 					position="absolute"
 					className={
-						framework.side_menu_open ? classes.appBar : classes.appBarShift
+						!framework.side_menu_open ? classes.appBar : classes.appBarShift
 					}
 				>
 					<Toolbar
-						disableGutters={framework.side_menu_open}
+						disableGutters={!framework.side_menu_open}
 						className={classes.toolbar}
 					>
 						<IconButton
 							onClick={() => this.props.dispatch(sideMenuToggle())}
 							className={
-								framework.side_menu_open
+								!framework.side_menu_open
 									? classes.menuButton
 									: classes.menuButtonHidden
 							}
@@ -91,7 +89,7 @@ class Navbar extends Component {
 							noWrap
 							className={classes.title}
 						>
-							Dashboard
+							{framework.nav_title}
 						</Typography>
 					</Toolbar>
 				</AppBar>

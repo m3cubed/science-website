@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import compose from "recompose/compose";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
+import { drawerContent } from "./DrawerContent";
 //Accessories
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,11 +10,15 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 //Icons
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+//Redux
 import { sideMenuToggle } from "../../actions/FrameWork/framework";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
+	toolbar: {
+		paddingRight: 24 // keep right padding when drawer closed
+	},
 	toolbarIcon: {
 		display: "flex",
 		alignItems: "center",
@@ -31,6 +36,7 @@ const styles = theme => ({
 		})
 	},
 	drawerPaperClose: {
+		position: "relative",
 		overflowX: "hidden",
 		transition: theme.transitions.create("width", {
 			easing: theme.transitions.easing.sharp,
@@ -40,6 +46,9 @@ const styles = theme => ({
 		[theme.breakpoints.up("sm")]: {
 			width: theme.spacing.unit * 9
 		}
+	},
+	drawerPaperNone: {
+		display: "none"
 	}
 });
 
@@ -51,10 +60,13 @@ class SideDrawer extends Component {
 			<Drawer
 				variant="permanent"
 				classes={{
-					paper: !framework.side_menu_open
+					paper: framework.side_menu_open
 						? classes.drawerPaper
-						: classes.drawerPaperClose
+						: framework.nav_title !== "SNC1D"
+							? classes.drawerPaperClose
+							: classes.drawerPaperNone
 				}}
+				open={!framework.side_menu_open}
 			>
 				<div className={classes.toolbarIcon}>
 					<IconButton onClick={() => this.props.dispatch(sideMenuToggle())}>
@@ -62,7 +74,7 @@ class SideDrawer extends Component {
 					</IconButton>
 				</div>
 				<Divider />
-				<List>{this.props.children}</List>
+				<List>{drawerContent}</List>
 			</Drawer>
 		);
 	}

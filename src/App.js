@@ -5,6 +5,8 @@ import Navbar from "./components/FrameWork/Navbar";
 
 import { withStyles } from "@material-ui/core/styles";
 import SideDrawer from "./components/FrameWork/SideDrawer";
+import LandingPage from "./components/Pages/LandingPage";
+import Calendar from "./components/Pages/Calendar";
 
 const styles = theme => ({
 	root: {
@@ -12,9 +14,14 @@ const styles = theme => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing.unit * 3,
 		height: "100vh",
 		overflow: "auto"
+	},
+	appBarSpacer: theme.mixins.toolbar,
+	pages: {
+		padding: theme.spacing.unit * 3,
+		margin: "0px auto",
+		display: "block"
 	}
 });
 
@@ -29,7 +36,13 @@ class App extends Component {
 						<Navbar />
 						<SideDrawer />
 						<main className={classes.content}>
-							<Switch />
+							<div className={classes.appBarSpacer} />
+							<Switch>
+								<Route exact path="/" component={LandingPage} />
+								<div className={classes.pages}>
+									<Route exact path="/calendar" component={Calendar} />
+								</div>
+							</Switch>
 						</main>
 					</div>
 				</React.Fragment>
