@@ -58,22 +58,25 @@ const styles = theme => ({
 		display: "flex"
 	},
 	cardMedia: {
-		width: "calc(55vh/4*3)"
+		width: "calc(55vh/4*3)",
+		maxWidth: 250
 	},
 	cardTextOpen: {
 		transition: "500ms ease-in-out",
-		width: "30vw"
+		width: "30vw",
+		marginTop: 20
 	},
 	cardTextClose: {
 		transition: "500ms ease-in-out",
 		color: "transparent",
-		width: 0
+		width: 0,
+		marginTop: 20
 	}
 });
 
-const card1 = loremIpsum();
-const card2 = loremIpsum();
-const card3 = loremIpsum();
+const card1 = loremIpsum({ count: 10 });
+const card2 = loremIpsum({ count: 10 });
+const card3 = loremIpsum({ count: 10 });
 
 class Info extends Component {
 	state = {
@@ -123,6 +126,7 @@ class Info extends Component {
 							title="teacher"
 							image={teacher}
 						/>
+
 						<CardHeader
 							action={
 								<IconButton onClick={this.handleExpand("open1")}>
@@ -137,6 +141,17 @@ class Info extends Component {
 						/>
 
 						<CardContent style={{ paddingRight: 0 }}>
+							<Typography
+								variant="h4"
+								className={
+									this.state.open1
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Mr. Ma
+							</Typography>
+
 							<Typography
 								component="p"
 								className={
@@ -169,6 +184,7 @@ class Info extends Component {
 							title="science"
 							image={science}
 						/>
+
 						<CardHeader
 							action={
 								<IconButton onClick={this.handleExpand("open2")}>
@@ -181,7 +197,19 @@ class Info extends Component {
 							}
 							title="Course"
 						/>
+
 						<CardContent style={{ paddingRight: 0 }}>
+							<Typography
+								variant="h4"
+								className={
+									this.state.open2
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								SNC1D - Grade 9 Academic Science
+							</Typography>
+
 							<Typography
 								component="p"
 								className={
@@ -190,7 +218,19 @@ class Info extends Component {
 										: classes.cardTextClose
 								}
 							>
-								{card1}
+								{card2}
+							</Typography>
+
+							<Typography
+								className={
+									this.state.open2
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								<a href="http://www.edu.gov.on.ca/eng/curriculum/secondary/science910_2008.pdf">
+									Course Curriculum
+								</a>
 							</Typography>
 						</CardContent>
 					</Card>
@@ -211,6 +251,7 @@ class Info extends Component {
 							title="school"
 							image={school}
 						/>
+
 						<CardHeader
 							action={
 								<IconButton onClick={this.handleExpand("open3")}>
@@ -223,7 +264,19 @@ class Info extends Component {
 							}
 							title="School"
 						/>
+
 						<CardContent style={{ paddingRight: 0 }}>
+							<Typography
+								variant="h4"
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Bill Crothers Secondary School
+							</Typography>
+
 							<Typography
 								component="p"
 								className={
@@ -232,7 +285,19 @@ class Info extends Component {
 										: classes.cardTextClose
 								}
 							>
-								{card1}
+								{card3}
+							</Typography>
+
+							<Typography
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								<a href="http://www.yrdsb.ca/schools/billcrothers.ss/Pages/default.aspx">
+									School Website
+								</a>
 							</Typography>
 						</CardContent>
 					</Card>

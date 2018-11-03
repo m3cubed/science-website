@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 
 import CalendarFW from "../CalendarFrameWork/CalendarFW";
 import { handleNavTitle } from "../../actions/FrameWork/framework";
+import { Paper } from "@material-ui/core";
 
 const styles = theme => ({
 	root: {
@@ -22,7 +23,7 @@ class Calendar extends Component {
 		const { classes } = this.props;
 		return (
 			<Grid className={classes.root} container justify="center">
-				<CalendarFW />
+				<CalendarFW style={{ zIndex: 2 }} />
 			</Grid>
 		);
 	}

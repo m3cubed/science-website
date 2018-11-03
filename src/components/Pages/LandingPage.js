@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import earthBanner from "../../Earth.png";
 import { format } from "date-fns";
+import loremIpsum from "lorem-ipsum";
 //Accessories
 import Typography from "@material-ui/core/Typography";
 //Icons
@@ -10,6 +11,10 @@ import AnnouncementIcon from "@material-ui/icons/Announcement";
 import { handleNavTitle } from "../../actions/FrameWork/framework";
 
 const date = format(new Date(), "dddd[,] MMMM Do[,] YYYY");
+const text1 = loremIpsum();
+const text2 = loremIpsum();
+const text3 = loremIpsum();
+const text4 = loremIpsum();
 
 class LandingPage extends Component {
 	state = {
@@ -58,12 +63,29 @@ class LandingPage extends Component {
 						{this.state.time}
 					</Typography>
 					<Typography style={{ color: "white" }} variant="h5" align="center">
-						{date}
+						{format(new Date(), "dddd[,] MMMM Do[,] YYYY")}
 					</Typography>
 				</div>
 				<div style={{ marginTop: 50 }}>
-					<Typography variant="h5" align="center" color="secondary">
+					<Typography
+						variant="h5"
+						align="center"
+						color="secondary"
+						style={{ marginBottom: 30 }}
+					>
 						Announcements
+					</Typography>
+					<Typography variant="subtitle1" align="center">
+						{text1}
+					</Typography>
+					<Typography variant="subtitle1" align="center">
+						{text2}
+					</Typography>
+					<Typography variant="subtitle1" align="center">
+						{text3}
+					</Typography>
+					<Typography variant="subtitle1" align="center">
+						{text4}
 					</Typography>
 				</div>
 			</React.Fragment>

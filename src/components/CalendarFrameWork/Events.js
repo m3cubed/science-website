@@ -1,0 +1,21 @@
+export const events = [
+	[11, 5, "Intro to Circuits", "Lesson"],
+	[11, 6, "Review", "Lesson"],
+	[11, 7, "Take your kid to work day", "Event"],
+	[11, 8, "Electrostatic Mini Test", "Test"],
+	[11, 9, "Intro to circuits lab", "Assignment"],
+	[11, 12, "Voltage in series", "Lesson"],
+	[11, 13, "Voltage in parallel", "Lesson"],
+	[11, 14, "Current in series", "Lesson"],
+	[11, 15, "Current in parallel", "Lesson"],
+	[11, 16, "Problem set", "Assignment"],
+	[11, 19, "Ohm's Law Lab", "Assignment"],
+	[11, 20, "Ohm's Law Lab Cont", "Assignment"],
+	[11, 21, "Power Electrical Cost", "Lesson"],
+	[11, 22, "Energy Efficiency Problems", "Assignment"],
+	[11, 22, "PA day", "Event"],
+	[11, 26, "Electrical Generation Webquest", "Assignment"],
+	[11, 27, "Review", "Assignment"],
+	[11, 28, "CCT Showcase", "Event"],
+	[11, 29, "Current Test", "Test"]
+];

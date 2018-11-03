@@ -1,14 +1,19 @@
 import React from "react";
 import dateFns from "date-fns";
+import { format } from "date-fns";
 import { withStyles } from "@material-ui/core/styles";
+import { events } from "./Events";
+import loremIpsum from "lorem-ipsum";
 //Accessories
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 //Icons
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import CalendarCapsule from "./CalendarCapsule";
 
 const styles = theme => ({
 	dayRegular: {
@@ -110,14 +115,23 @@ class CalendarFW extends React.Component {
 		const dateFormat = "D";
 		const rows = [];
 
+		const monthNum = format(currentMonth, "M");
+
 		let days = [];
 		let day = startDate;
 		let formattedDate = "";
+
+		const monthlyEvents = events.filter(event => event[0] !== currentMonth);
 
 		while (day <= endDate) {
 			for (let i = 0; i < 7; i++) {
 				formattedDate = dateFns.format(day, dateFormat);
 				const cloneDay = day;
+
+				const dailyEvent = monthlyEvents.filter(
+					event => event[1] == formattedDate
+				);
+
 				days.push(
 					<Grid
 						item
@@ -143,6 +157,12 @@ class CalendarFW extends React.Component {
 						>
 							{formattedDate}
 						</Typography>
+						{dailyEvent.length > 0 ? (
+							dateFns.isSameMonth(day, monthStart) &&
+							monthNum == dailyEvent[0][0] ? (
+								<CalendarCapsule>{dailyEvent}</CalendarCapsule>
+							) : null
+						) : null}
 					</Grid>
 				);
 				day = dateFns.addDays(day, 1);
@@ -199,21 +219,104 @@ class CalendarFW extends React.Component {
 		});
 	};
 
+	generateParagraphs = () => {
+		const num = Math.ceil(Math.random() * 5);
+		let paragraphs = [];
+
+		for (let i = 0; i < num; i++) {
+			paragraphs.push(
+				<Typography key={i} style={{ marginTop: 10 }}>
+					{loremIpsum({
+						count: Math.ceil(Math.random() * 3),
+						units: "paragraphs"
+					})}
+				</Typography>
+			);
+		}
+
+		return paragraphs;
+	};
+
+	selectedTitle = () => {
+		const dailyEvent = events.filter(
+			event =>
+				event[0] == format(this.state.selectedDate, "M") &&
+				event[1] == format(this.state.selectedDate, "D")
+		);
+		try {
+			return dailyEvent[0][2];
+		} catch (error) {
+			return null;
+		}
+	};
+
 	render() {
 		return (
-			<Paper style={{ width: "80vw", height: "87vh" }}>
-				<Grid
-					style={{ height: "100%", width: "100%" }}
-					container
-					direction="column"
-				>
-					<Grid item>{this.renderHeader()}</Grid>
-					<Grid item>{this.renderDays()}</Grid>
-					<Grid style={{ maxWidth: "100%" }} item xs>
-						{this.renderCells()}
+			<React.Fragment>
+				<Paper style={{ zIndex: 3, width: "80vw", height: "87vh" }}>
+					<Grid
+						style={{ height: "100%", width: "100%" }}
+						container
+						direction="column"
+					>
+						<Grid item>{this.renderHeader()}</Grid>
+						<Grid item>{this.renderDays()}</Grid>
+						<Grid style={{ maxWidth: "100%" }} item xs>
+							{this.renderCells()}
+						</Grid>
 					</Grid>
-				</Grid>
-			</Paper>
+				</Paper>
+				<div
+					style={{
+						zIndex: 1,
+						backgroundColor: "white",
+						width: "80vw",
+						height: 400,
+						paddingLeft: 15,
+						paddingRight: 15,
+						paddingTop: 30,
+						paddingBottom: 30
+					}}
+				>
+					<Typography variant="h2">
+						{format(this.state.selectedDate, "MMMM Do[,] YYYY")}
+					</Typography>
+					{this.props.children}
+					<Divider />
+
+					<Typography
+						variant="h4"
+						color="primary"
+						style={{ marginTop: 10, marginBottom: 20 }}
+					>
+						{this.selectedTitle()}
+					</Typography>
+
+					{this.selectedTitle() !== null ? (
+						<React.Fragment>
+							<Typography
+								variant="h5"
+								color="secondary"
+								style={{ marginTop: 10, marginBottom: 10 }}
+							>
+								Content
+							</Typography>
+
+							{this.generateParagraphs()}
+
+							<Typography
+								variant="h5"
+								color="secondary"
+								style={{ marginTop: 10, marginBottom: 10 }}
+							>
+								Assignment/Homework
+							</Typography>
+
+							{this.generateParagraphs()}
+						</React.Fragment>
+					) : null}
+				</div>
+			</React.Fragment>
 		);
 	}
 }
