@@ -31,7 +31,7 @@ export const drawerContent = (
 			</ListItemIcon>
 			<ListItemText primary="Calendar" />
 		</ListItem>
-		<ListItem button>
+		<ListItem component={Link} to="/about" button>
 			<ListItemIcon>
 				<InfoIcon />
 			</ListItemIcon>

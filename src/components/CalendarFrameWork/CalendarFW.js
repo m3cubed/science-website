@@ -21,6 +21,7 @@ const styles = theme => ({
 	},
 	daySelected: {
 		height: "100%",
+		backgroundColor: "#e5f9e6",
 		borderRight: `3px solid ${theme.palette.primary.main}`,
 		padding: 8
 	},

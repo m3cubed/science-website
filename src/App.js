@@ -7,6 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import SideDrawer from "./components/FrameWork/SideDrawer";
 import LandingPage from "./components/Pages/LandingPage";
 import Calendar from "./components/Pages/Calendar";
+import Info from "./components/Pages/Info";
 
 const styles = theme => ({
 	root: {
@@ -35,7 +36,7 @@ class App extends Component {
 
 							<Switch>
 								<Route exact path="/" component={LandingPage} />
-
+								<Route exact path="/about" component={Info} />
 								<Route exact path="/calendar" component={Calendar} />
 							</Switch>
 						</main>
