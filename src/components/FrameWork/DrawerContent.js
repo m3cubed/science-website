@@ -9,6 +9,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import EventIcon from "@material-ui/icons/Event";
+import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import InfoIcon from "@material-ui/icons/Info";
 
 export const drawerContent = (
@@ -19,7 +20,7 @@ export const drawerContent = (
 			</ListItemIcon>
 			<ListItemText primary="Home" />
 		</ListItem>
-		<ListItem button>
+		<ListItem component={Link} to="/assignments" button>
 			<ListItemIcon>
 				<AssignmentIcon />
 			</ListItemIcon>
@@ -30,6 +31,12 @@ export const drawerContent = (
 				<EventIcon />
 			</ListItemIcon>
 			<ListItemText primary="Calendar" />
+		</ListItem>
+		<ListItem component={Link} to="/questions" button>
+			<ListItemIcon>
+				<QuestionAnswerIcon />
+			</ListItemIcon>
+			<ListItemText primary="FAQ" />
 		</ListItem>
 		<ListItem component={Link} to="/about" button>
 			<ListItemIcon>

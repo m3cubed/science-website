@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 
 import CalendarFW from "../CalendarFrameWork/CalendarFW";
 import { handleNavTitle } from "../../actions/FrameWork/framework";
-import { Paper } from "@material-ui/core";
 
 const styles = theme => ({
 	root: {

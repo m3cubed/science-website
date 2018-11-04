@@ -55,7 +55,10 @@ const styles = theme => ({
 	},
 	cardContent: {
 		height: "55vh",
-		display: "flex"
+		display: "flex",
+		"&:hover": {
+			backgroundColor: "#E0E0E0"
+		}
 	},
 	cardMedia: {
 		width: "calc(55vh/4*3)",
@@ -112,6 +115,7 @@ class Info extends Component {
 		return (
 			<div className={classes.root}>
 				<div
+					onClick={this.handleExpand("open1")}
 					className={
 						this.state.open1
 							? classes.cardCenter
@@ -120,7 +124,15 @@ class Info extends Component {
 								: classes.cardRegular
 					}
 				>
-					<Card className={classes.cardContent}>
+					<Card
+						className={classes.cardContent}
+						style={{
+							backgroundColor: expanded ? "#fff" : null,
+							boxShadow: this.state.open1
+								? "0px 15px 3px 5px rgba(0, 0, 0, 0.2), 0px 15px 3px 3px rgba(0, 0, 0, 0.14), 0px 15px 3px -1px rgba(0, 0, 0, 0.12)"
+								: null
+						}}
+					>
 						<CardMedia
 							className={classes.cardMedia}
 							title="teacher"
@@ -128,15 +140,15 @@ class Info extends Component {
 						/>
 
 						<CardHeader
-							action={
-								<IconButton onClick={this.handleExpand("open1")}>
-									{this.state.open1 ? (
-										<ChevronLeftIcon />
-									) : (
-										<ChevronRightIcon />
-									)}
-								</IconButton>
-							}
+							// action={
+							// 	<IconButton onClick={this.handleExpand("open1")}>
+							// 		{this.state.open1 ? (
+							// 			<ChevronLeftIcon />
+							// 		) : (
+							// 			<ChevronRightIcon />
+							// 		)}
+							// 	</IconButton>
+							// }
 							title="Teacher"
 						/>
 
@@ -167,6 +179,7 @@ class Info extends Component {
 				</div>
 
 				<div
+					onClick={this.handleExpand("open2")}
 					className={
 						this.state.open2
 							? classes.cardCenter
@@ -178,7 +191,15 @@ class Info extends Component {
 					}
 					style={{ zIndex: this.state.open1 ? 4 : 1 }}
 				>
-					<Card className={classes.cardContent}>
+					<Card
+						className={classes.cardContent}
+						style={{
+							backgroundColor: expanded ? "#fff" : null,
+							boxShadow: this.state.open2
+								? "0px 15px 3px 5px rgba(0, 0, 0, 0.2), 0px 15px 3px 3px rgba(0, 0, 0, 0.14), 0px 15px 3px -1px rgba(0, 0, 0, 0.12)"
+								: null
+						}}
+					>
 						<CardMedia
 							className={classes.cardMedia}
 							title="science"
@@ -186,15 +207,15 @@ class Info extends Component {
 						/>
 
 						<CardHeader
-							action={
-								<IconButton onClick={this.handleExpand("open2")}>
-									{this.state.open2 ? (
-										<ChevronLeftIcon />
-									) : (
-										<ChevronRightIcon />
-									)}
-								</IconButton>
-							}
+							// action={
+							// 	<IconButton onClick={this.handleExpand("open2")}>
+							// 		{this.state.open2 ? (
+							// 			<ChevronLeftIcon />
+							// 		) : (
+							// 			<ChevronRightIcon />
+							// 		)}
+							// 	</IconButton>
+							// }
 							title="Course"
 						/>
 
@@ -237,6 +258,7 @@ class Info extends Component {
 				</div>
 
 				<div
+					onClick={this.handleExpand("open3")}
 					className={
 						this.state.open3
 							? classes.cardCenter
@@ -245,7 +267,15 @@ class Info extends Component {
 								: classes.cardRegular
 					}
 				>
-					<Card className={classes.cardContent}>
+					<Card
+						className={classes.cardContent}
+						style={{
+							backgroundColor: expanded ? "#fff" : null,
+							boxShadow: this.state.open3
+								? "0px 15px 3px 5px rgba(0, 0, 0, 0.2), 0px 15px 3px 3px rgba(0, 0, 0, 0.14), 0px 15px 3px -1px rgba(0, 0, 0, 0.12)"
+								: null
+						}}
+					>
 						<CardMedia
 							className={classes.cardMedia}
 							title="school"
@@ -253,15 +283,15 @@ class Info extends Component {
 						/>
 
 						<CardHeader
-							action={
-								<IconButton onClick={this.handleExpand("open3")}>
-									{this.state.open3 ? (
-										<ChevronLeftIcon />
-									) : (
-										<ChevronRightIcon />
-									)}
-								</IconButton>
-							}
+							// action={
+							// 	<IconButton onClick={this.handleExpand("open3")}>
+							// 		{this.state.open3 ? (
+							// 			<ChevronLeftIcon />
+							// 		) : (
+							// 			<ChevronRightIcon />
+							// 		)}
+							// 	</IconButton>
+							// }
 							title="School"
 						/>
 

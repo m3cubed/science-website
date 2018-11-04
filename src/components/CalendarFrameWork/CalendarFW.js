@@ -24,6 +24,15 @@ const styles = theme => ({
 		},
 		padding: 8
 	},
+	dayLeft: {
+		height: "100%",
+		borderRight: "3px solid lightgrey",
+		backgroundColor: "#EEEEEE",
+		"&:hover": {
+			borderRight: `3px solid ${theme.palette.primary.light}`
+		},
+		padding: 8
+	},
 	daySelected: {
 		height: "100%",
 		backgroundColor: "#e5f9e6",
@@ -33,6 +42,7 @@ const styles = theme => ({
 	dayRight: {
 		height: "100%",
 		borderRight: `3px solid transparent`,
+		backgroundColor: "#EEEEEE",
 		"&:hover": {
 			borderRight: `3px solid ${theme.palette.primary.light}`
 		},
@@ -127,7 +137,6 @@ class CalendarFW extends React.Component {
 			for (let i = 0; i < 7; i++) {
 				formattedDate = dateFns.format(day, dateFormat);
 				const cloneDay = day;
-
 				const dailyEvent = monthlyEvents.filter(
 					event => event[1] == formattedDate
 				);
@@ -141,7 +150,9 @@ class CalendarFW extends React.Component {
 							dateFns.isSameDay(day, selectedDate)
 								? classes.daySelected
 								: i !== 6
-									? classes.dayRegular
+									? i !== 0
+										? classes.dayRegular
+										: classes.dayLeft
 									: classes.dayRight
 						}
 						onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
