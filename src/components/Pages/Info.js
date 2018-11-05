@@ -163,7 +163,16 @@ class Info extends Component {
 							>
 								Mr. Ma
 							</Typography>
-
+							<Typography
+								variant="h6"
+								className={
+									this.state.open1
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Short Bios
+							</Typography>
 							<Typography
 								component="p"
 								className={
@@ -173,6 +182,29 @@ class Info extends Component {
 								}
 							>
 								{card1}
+							</Typography>
+							<Typography
+								variant="h6"
+								className={
+									this.state.open1
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Hobbies
+							</Typography>
+							<Typography
+								component="p"
+								className={
+									this.state.open1
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								{loremIpsum({ count: 1, units: "words" })},{" "}
+								{loremIpsum({ count: 1, units: "words" })},{" "}
+								{loremIpsum({ count: 1, units: "words" })},{" "}
+								{loremIpsum({ count: 1, units: "words" })}
 							</Typography>
 						</CardContent>
 					</Card>
@@ -232,6 +264,17 @@ class Info extends Component {
 							</Typography>
 
 							<Typography
+								variant="h6"
+								className={
+									this.state.open2
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Class Description
+							</Typography>
+
+							<Typography
 								component="p"
 								className={
 									this.state.open2
@@ -240,6 +283,17 @@ class Info extends Component {
 								}
 							>
 								{card2}
+							</Typography>
+
+							<Typography
+								variant="h6"
+								className={
+									this.state.open2
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Ontario Curriculum
 							</Typography>
 
 							<Typography
@@ -308,6 +362,17 @@ class Info extends Component {
 							</Typography>
 
 							<Typography
+								variant="h6"
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								School Description
+							</Typography>
+
+							<Typography
 								component="p"
 								className={
 									this.state.open3
@@ -316,6 +381,17 @@ class Info extends Component {
 								}
 							>
 								{card3}
+							</Typography>
+
+							<Typography
+								variant="h6"
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								School Website
 							</Typography>
 
 							<Typography
