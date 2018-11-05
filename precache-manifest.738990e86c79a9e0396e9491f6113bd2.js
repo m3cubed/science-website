@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/science-website/static/js/1.c35c27a8.chunk.js"
   },
   {
-    "revision": "237e84b4387bf4fbb705a84f2d3ae2ac",
+    "revision": "d99b3dafbd52b5496e9f8bd552a225be",
     "url": "/science-website/index.html"
   }
 ];
