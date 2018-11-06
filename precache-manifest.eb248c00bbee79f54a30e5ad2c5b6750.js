@@ -16,19 +16,23 @@ self.__precacheManifest = [
     "url": "/science-website/static/media/Earth.784b3f54.png"
   },
   {
+    "revision": "067587985a73b1e9cc8fea826a83927d",
+    "url": "/science-website/static/media/CurrentFormativeQuiz.06758798.pdf"
+  },
+  {
     "revision": "2ac0bf26eaa934e7745c",
     "url": "/science-website/static/js/runtime~main.2ac0bf26.js"
   },
   {
-    "revision": "a2c551e50c70a60a0b86",
-    "url": "/science-website/static/js/main.a2c551e5.chunk.js"
+    "revision": "a8322592ef3cd37fe153",
+    "url": "/science-website/static/js/main.a8322592.chunk.js"
   },
   {
-    "revision": "9a84fb0a1429b9e09d81",
-    "url": "/science-website/static/js/1.9a84fb0a.chunk.js"
+    "revision": "882883a37aca5ca8e395",
+    "url": "/science-website/static/js/1.882883a3.chunk.js"
   },
   {
-    "revision": "0c1bda1c9ef084c7fcf70ab9a882adb2",
+    "revision": "156510a6a64e9d8ab50722f36c3a4cf0",
     "url": "/science-website/index.html"
   }
 ];
