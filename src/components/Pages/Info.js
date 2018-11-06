@@ -79,7 +79,7 @@ const styles = theme => ({
 
 const card1 = loremIpsum({ count: 10 });
 const card2 = loremIpsum({ count: 10 });
-const card3 = loremIpsum({ count: 10 });
+const card3 = loremIpsum({ count: 6 });
 
 class Info extends Component {
 	state = {
@@ -201,10 +201,7 @@ class Info extends Component {
 										: classes.cardTextClose
 								}
 							>
-								{loremIpsum({ count: 1, units: "words" })},{" "}
-								{loremIpsum({ count: 1, units: "words" })},{" "}
-								{loremIpsum({ count: 1, units: "words" })},{" "}
-								{loremIpsum({ count: 1, units: "words" })}
+								Badminton, Sketching, Hiking, Programming
 							</Typography>
 						</CardContent>
 					</Card>

@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import loremIpsum from "lorem-ipsum";
 import { format } from "date-fns";
+import currentFormative from "../../CurrentFormativeQuiz.pdf";
 //Accessories
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -74,7 +75,16 @@ class Assignements extends Component {
 							<Typography variant={"subtitle2"} style={{ marginBottom: 10 }}>
 								Assignment Info
 							</Typography>
-							<Typography>{loremText[i]}</Typography>
+							<Typography>
+								{event[2] === "Review"
+									? "Students are to complete the following formative quiz."
+									: loremText[i]}
+							</Typography>
+							{event[2] === "Review" ? (
+								<Typography component="a" href={currentFormative} download>
+									Download Current Formative Quiz
+								</Typography>
+							) : null}
 						</div>
 					</ExpansionPanelDetails>
 				</ExpansionPanel>
