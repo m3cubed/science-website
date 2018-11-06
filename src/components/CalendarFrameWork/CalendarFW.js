@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { withStyles } from "@material-ui/core/styles";
 import { events } from "./Events";
 import loremIpsum from "lorem-ipsum";
+import currentFormative from "../../CurrentFormativeQuiz.pdf";
 //Accessories
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -262,6 +263,7 @@ class CalendarFW extends React.Component {
 	};
 
 	render() {
+		console.log(format(this.state.selectedDate, "M D"));
 		return (
 			<React.Fragment>
 				<Paper style={{ zIndex: 3, width: "80vw", height: "87vh" }}>
@@ -312,18 +314,31 @@ class CalendarFW extends React.Component {
 							>
 								Content
 							</Typography>
+							{format(this.state.selectedDate, "M D") === "11 27" ? (
+								<React.Fragment>
+									<Typography>
+										Students are to complete the following formative quiz.
+									</Typography>
+									<Typography component="a" href={currentFormative} download>
+										Download Current Formative Quiz
+									</Typography>
+								</React.Fragment>
+							) : (
+								this.generateParagraphs()
+							)}
+							{format(this.state.selectedDate, "M D") === "11 27" ? null : (
+								<React.Fragment>
+									<Typography
+										variant="h5"
+										color="secondary"
+										style={{ marginTop: 10, marginBottom: 10 }}
+									>
+										Assignment/Homework
+									</Typography>
 
-							{this.generateParagraphs()}
-
-							<Typography
-								variant="h5"
-								color="secondary"
-								style={{ marginTop: 10, marginBottom: 10 }}
-							>
-								Assignment/Homework
-							</Typography>
-
-							{this.generateParagraphs()}
+									{this.generateParagraphs()}
+								</React.Fragment>
+							)}
 						</React.Fragment>
 					) : null}
 				</div>
