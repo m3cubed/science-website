@@ -66,6 +66,7 @@ const styles = theme => ({
 	},
 	cardTextOpen: {
 		transition: "500ms ease-in-out",
+
 		width: "30vw",
 		marginTop: 20
 	},
@@ -279,7 +280,16 @@ class Info extends Component {
 										: classes.cardTextClose
 								}
 							>
-								{card2}
+								This course enables students to develop their understanding of
+								basic concepts in biology, chemistry, earth and space science,
+								and physics, and to relate science to technology, society, and
+								the environment. Throughout the course, students will develop
+								their skills in the processes of scientific investigation.
+								Students will acquire an understanding of scientific theories
+								and conduct investigations related to sustainable ecosystems;
+								atomic and molecular structures and the properties of elements
+								and compounds; the study of the universe and its properties and
+								components; and the principles of electricity.
 							</Typography>
 
 							<Typography
@@ -346,7 +356,13 @@ class Info extends Component {
 							title="School"
 						/>
 
-						<CardContent style={{ paddingRight: 0 }}>
+						<CardContent
+							style={{
+								paddingRight: 0,
+								overflowY: this.state.open3 ? "scroll" : "hidden",
+								overflowX: "hidden"
+							}}
+						>
 							<Typography
 								variant="h4"
 								className={
@@ -366,9 +382,8 @@ class Info extends Component {
 										: classes.cardTextClose
 								}
 							>
-								School Description
+								School Mission
 							</Typography>
-
 							<Typography
 								component="p"
 								className={
@@ -377,9 +392,53 @@ class Info extends Component {
 										: classes.cardTextClose
 								}
 							>
-								{card3}
+								Focus on learning through a healthy and active lifestyle;
+								Develop literacy and numeracy for life-long learning; Ensure
+								flexible programs that follow the Ontario Curriculum; Emphasize
+								post-secondary pathways to learning and career choices;
+								Facilitate professional learning and research; Create an
+								athlete-friendly environment of learning; Provide a safe and
+								supportive school environment.
 							</Typography>
-
+							<Typography
+								variant="h6"
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Vision
+							</Typography>
+							<Typography
+								component="p"
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								Bill Crothers Secondary School (BCSS) is an inclusive,
+								character-focused learning environment that links excellence in
+								education and athletics with a commitment to healthy, active
+								living for all students. BCSS is a school for public secondary
+								students across York Region. It will serve as a catalyst for the
+								development of health and physical education programming as well
+								as sport and academic innovation.
+							</Typography>
+							<Typography
+								component="p"
+								className={
+									this.state.open3
+										? classes.cardTextOpen
+										: classes.cardTextClose
+								}
+							>
+								<strong>
+									To develop in students the love of sport through learning and
+									the love of learning through sport.
+								</strong>
+							</Typography>
 							<Typography
 								variant="h6"
 								className={
