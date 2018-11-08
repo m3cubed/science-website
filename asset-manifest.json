@@ -1,6 +1,6 @@
 {
-  "main.js": "/science-website/static/js/main.0eb154d1.chunk.js",
-  "main.js.map": "/science-website/static/js/main.0eb154d1.chunk.js.map",
+  "main.js": "/science-website/static/js/main.dabda3d8.chunk.js",
+  "main.js.map": "/science-website/static/js/main.dabda3d8.chunk.js.map",
   "static/js/1.135e430e.chunk.js": "/science-website/static/js/1.135e430e.chunk.js",
   "static/js/1.135e430e.chunk.js.map": "/science-website/static/js/1.135e430e.chunk.js.map",
   "runtime~main.js": "/science-website/static/js/runtime~main.2ac0bf26.js",
@@ -11,6 +11,6 @@
   "static/media/science.jpg": "/science-website/static/media/science.5525ceb3.jpg",
   "static/media/Earth.png": "/science-website/static/media/Earth.784b3f54.png",
   "index.html": "/science-website/index.html",
-  "precache-manifest.4a557f1dc263586ca22c2136b4e017ca.js": "/science-website/precache-manifest.4a557f1dc263586ca22c2136b4e017ca.js",
+  "precache-manifest.83c93b2c090521b0eb2a5e175dbe7ad2.js": "/science-website/precache-manifest.83c93b2c090521b0eb2a5e175dbe7ad2.js",
   "service-worker.js": "/science-website/service-worker.js"
 }
